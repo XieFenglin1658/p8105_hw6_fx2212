@@ -89,7 +89,7 @@ city_models = homicide_clean |>
 city_models |> 
   ggplot(aes(x = OR, y = city_state)) +
   geom_point() +
-  geom_errorbar(aes(xmin = CI_lower, xmax = CI_upper), orientation = "y", height = 0.2) +
+  geom_errorbar(aes(xmin = CI_lower, xmax = CI_upper), orientation = "y", width = 0.2) +
   geom_vline(xintercept = 1, linetype = "dashed", color = "red") +
   labs(
     title = "Adjusted Odds Ratios for Solving Homicides: Male vs Female Victims",
