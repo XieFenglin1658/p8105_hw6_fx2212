@@ -111,7 +111,8 @@ Based on the plot, most cities have confidence intervals that include 1, indicat
 data("weather_df")
 
 weather_clean = weather_df |> 
-  drop_na(tmax, tmin, prcp)
+  drop_na(tmax, tmin, prcp) |> 
+  filter(name == "CentralPark_NY")
 
 bootstrap_results = 
   weather_clean |> 
@@ -168,7 +169,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 
 The 95% confidence interval for R² is (`r r2_ci_lower`, `r r2_ci_upper`) and for β₁/β₂ is (`r beta_ratio_ci_lower`, `r beta_ratio_ci_upper`).
 
-The distribution of R² shows relatively stable model fit, concentrated in the 0.935-0.945 range. The distribution of β₁/β₂ is relatively wide, with long left tail, indicating substantial variability in the estimation of this ratio.
+The distribution of R² shows relatively stable model fit, concentrated in the 0.935-0.945 range. The β₁/β₂ bootstrap distribution is characterized by a sharp peak near zero with long tails, particularly on the negative side. While most estimates are relatively small in magnitude, the occasional extreme values lead to a wide overall range. The 95% confidence interval, though narrow compared to the extremes, still spans both positive and negative values, reflecting substantial uncertainty in the ratio's sign and magnitude.
 
 
 # Problem 3
