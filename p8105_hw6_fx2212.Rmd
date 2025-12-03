@@ -169,7 +169,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 
 The 95% confidence interval for R² is (`r r2_ci_lower`, `r r2_ci_upper`) and for β₁/β₂ is (`r beta_ratio_ci_lower`, `r beta_ratio_ci_upper`).
 
-The distribution of R² shows relatively stable model fit, concentrated in the 0.935-0.945 range. The β₁/β₂ bootstrap distribution is characterized by a sharp peak near zero with long tails, particularly on the negative side. While most estimates are relatively small in magnitude, the occasional extreme values lead to a wide overall range. The 95% confidence interval, though narrow compared to the extremes, still spans both positive and negative values, reflecting substantial uncertainty in the ratio's sign and magnitude.
+The distribution of R² shows relatively stable model fit, concentrated in the 0.935-0.945 range. The β₁/β₂ bootstrap distribution is characterized by a sharp peak near zero with long tails. While most estimates are relatively small in magnitude, the occasional extreme values lead to a wide overall range. The 95% confidence interval, though narrow compared to the extremes, still spans both positive and negative values, reflecting substantial uncertainty in the ratio's sign and magnitude.
 
 
 # Problem 3
@@ -194,6 +194,7 @@ birthweight_data = read_csv("birthweight.csv") |>
 ```{r}
 missing_summary = sapply(birthweight_data, function(x) sum(is.na(x)))
 ```
+
 There are no missing values in the dataset.
 
 
@@ -224,6 +225,7 @@ birthweight_data |>
   ) +
   theme_minimal()
 ```
+
 The proposed model explains `r proposed_r2` of the variation in birthweight. The residual plot shows residuals roughly evenly distributed around zero, though some heteroscedasticity is present.
 
 ## Cross-validation comparison
